@@ -1,14 +1,16 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-
 <ion-content padding>
-  The world is your oyster.
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12><h1 class="center huge">Your Reactor</h1></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>This column will take 6 columns</ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <h1>Your Reactor</h1>
   <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
+    <button ion-button (click)="toggle()">Wew</button>
   </p>
 </ion-content>

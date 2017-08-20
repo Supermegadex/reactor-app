@@ -1,3 +1,14 @@
+@keyframes ripple {
+  from {
+    transform-origin: center;
+    transform-style: scale(0);
+  }
+  from {
+    transform-origin: center;
+    transform-style: scale(1);
+  }
+}
+
 page-home {
   .center {
     text-align: center;
@@ -5,5 +16,45 @@ page-home {
 
   .huge {
     font-size: 3em;
+    padding: 25px;
   }
+
+  ion-row {
+    min-height: 100vh;
+  }
+
+  #header {
+    background-color: #00bcd4;
+    color: black;
+  }
+
+  #container {
+    display: inline-block;
+    position: relative;
+  }
+
+  #dummy {
+    margin-top: 100%;
+  }
+
+  #title {
+    color: #7200ca;
+  }
+
+  #status-circle {
+    background-color: green;
+    border-radius: 100%;
+    padding: 50px;
+    font-size: 5em;
+    width: 2.5em;
+    height: 2.5em;
+  }
+
+  #content {
+    background: #aa00ff;
+  }
+}
+
+.grid {
+  padding: 0 !important;
 }

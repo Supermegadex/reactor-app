@@ -1,16 +1,71 @@
-<ion-content padding>
+<ion-content>
 
   <ion-grid>
-    <ion-row>
-      <ion-col col-12><h1 class="center huge">Your Reactor</h1></ion-col>
+    <ion-row id="header">
+      <ion-col col-12>
+        <h1 class="center huge" id="title">Daniel's Reactor</h1>
+      </ion-col>
+      <ion-col col-sm-12>
+        <div class="center" *ngIf="!getError()">
+          <ion-icon name="checkmark-circle-outline" id="status-circle" ></ion-icon>
+        </div>
+        <div class="center" *ngIf="getError">
+          <ion-icon name="close" id="status-circle" *ngIf="getError()">
+          </ion-icon>
+        </div>
+      </ion-col>
+      <ion-col col-12>
+        <h2 class="center">All systems fine!</h2>
+      </ion-col>
     </ion-row>
-    <ion-row>
-      <ion-col col-6>This column will take 6 columns</ion-col>
+    <ion-row id="content">
+      <ion-col col-12 col-md-4>
+        <ion-card [color]="getPower() ? 'grn' : 'danger'">
+          <ion-card-header>
+            Power
+          </ion-card-header>
+          <ion-card-content *ngIf="getPower()">
+            <p>
+              You're all good! Your reactor is giving your home <strong>{{kw}}</strong> kilowatts of power right now.
+            </p>
+            <p>
+              That's enough power for a medium-sized house.
+            </p>
+          </ion-card-content>
+          <ion-card-content *ngIf="!getPower()">
+            <p>
+              Your reactor is not producing any power because you have chosen to pause it.
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col col-12 col-md-4>
+        <ion-card color="grn">
+          <ion-card-header>
+            Energy
+          </ion-card-header>
+          <ion-card-content>
+            Your reactor has generated <strong>740</strong> kilowatt hours of energy so far this month. In Nebraska, this would have cost <strong>$66.60</strong>.
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col col-12 col-md-4>
+        <ion-card color="grn">
+          <ion-card-header>
+            Settings
+          </ion-card-header>
+          <ion-card-content>
+            I guess settings
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
     </ion-row>
   </ion-grid>
 
-  <h1>Your Reactor</h1>
-  <p>
-    <button ion-button (click)="toggle()">Wew</button>
-  </p>
+  <ion-fab right bottom>
+    <button ion-fab [color]="getPower() ? 'primary' : 'danger'" (click)="toggle()">
+      <ion-icon name="power"></ion-icon>
+    </button>
+  </ion-fab>
+
 </ion-content>
